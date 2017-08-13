@@ -75,6 +75,27 @@ class LinkedList:
             pointer2 = pointer2.next_node.next_node
         return False
 
+def meeting_point(list1, list2):
+    
+    diff = len(list1) - len(list2)
+    pointer1 = list1.head
+    pointer2 = list2.head
+    if (diff < 0):
+        diff = 0 - diff
+            
+        for i in range(diff):
+            pointer2 = pointer2.next_node
+    else:
+        
+        for i in range(diff):
+            pointer1 = pointer1.next_node
+            
+    while(pointer1 != None and pointer2 != None):
+        if(pointer1 == pointer2):
+            return f"Meeting point is {pointer1.value}"
+        pointer1 = pointer1.next_node
+        pointer2 = pointer2.next_node
+    return "Given lists don't meet"
 
 l = LinkedList()
 l.push(1)
@@ -91,5 +112,12 @@ l.push(11)
 l.push(12)
 l.push(13)
 l.push(14)
-l.cycle()
-print(l.has_cycle())            
+a = LinkedList()
+a.push(15)
+a.push(16)
+a.push(17)
+a.push(18)
+a.push(19)
+a.head.next_node.next_node.next_node.next_node.next_node = l.head.next_node.next_node.next_node.next_node
+print(l.has_cycle())
+print(meeting_point(l, a))
