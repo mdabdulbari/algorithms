@@ -17,7 +17,7 @@ class LinkedList:
 list = [e for e in range(10)]
 linked_l = LinkedList(list)
 
-n = 0
+n = 5
 count = -1
 pointer = Node(100)
 pointer.next_node = linked_l.head
